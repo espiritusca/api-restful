@@ -1,0 +1,20 @@
+CONFIGURAÇÃO INICIAL:
+
+inicializa o "npm init -y"
+faz o repositorio "git init" e ignora os arquivos modulos do node ".gitignore > node_modules"
+instala o express e mongoose "npm i express mongoose"
+instala o nodemon apenas para o dev "npm i --save-dev nodemon"
+cria a pasta e arquivo src/server.js
+vai no package.json e cria nos scripts o "dev: nodemon src/server.js" para rodar o nodemon com o arquivo do servidor
+"npm run dev" no gitbash para rodar o script "dev"
+importa o express "const express = require('express')" no server.js e torna um objeto com "const app = express()"
+importa o path "const path = require('path')" para usar os diretorios
+habilita o server para receber dados via post (formulários) "app.use(express.urlencoded({ extended: true }))"
+define as rotas "app.use('/api', routes)"
+executa o servidor "const port = process.env.PORT || 8080
+app.listen(port, () => console.log(`Server is listening on port ${port}`))"
+
+ROTAS:
+após criar o pasta/aqruivo de rotas "routes/routes.js" e importa-lo ao seu servidor "routes = require('./routes/routes')" ,
+ nesse aqruivo de rota importar o .Router() "const router = require('express').Router()
+exporta o modulo criado router "module.exports = router" para usar no server.js
