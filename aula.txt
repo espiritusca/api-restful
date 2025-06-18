@@ -18,3 +18,41 @@ ROTAS:
 após criar o pasta/aqruivo de rotas "routes/routes.js" e importa-lo ao seu servidor "routes = require('./routes/routes')" ,
  nesse aqruivo de rota importar o .Router() "const router = require('express').Router()
 exporta o modulo criado router "module.exports = router" para usar no server.js
+
+DATABASE:
+cria o arquivo/pasta database/db.js
+importa o mongoose "const mongoose = require('mongoose')
+config db.js:
+"
+    const mongoose = require('mongoose')
+
+function connect() {
+
+    mongoose.set('useNewUrlParser', true)
+    mongoose.set('useUnifiedTopology', true)
+
+    mongoose.connect('')
+
+    const db = mongoose.connection
+
+    db.once('open', () => {
+        console.log('Connected to database!')
+    })
+
+    db.on('error', console.error.bind(console, 'connection error: '))
+
+}
+
+module.exports = {
+    connect
+}
+"
+
+importa no servidor o db "const db = require('./database')
+nao esquecer de iniciar o db "db.connect()"
+
+cria a tabela (pasta/arquivo) "model/product.js"
+importa mongoose
+cria um schema "const schema = new mongoose.Schema({ name: String, etc,})
+faz o arquivo criar a tabela no mongoose "const Model = mongoose.model('nomeDaTabela', schema)
+exporta a tabela "module.exports = Model"
