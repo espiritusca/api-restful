@@ -1,6 +1,6 @@
 const ProductsModel = require('../models/products')
 
-async function get(req, res) {
+async function getAll(req, res) {
 
     const products = await ProductsModel.find()
 
@@ -8,8 +8,19 @@ async function get(req, res) {
 
 }
 
+async function getById(req, res) {
+    
+    const { id } = req.params /// query string (?id=123) usa req.query, quando vem no POST usa req.body
+
+    const product = await ProductsModel.find({ _id: id })
+
+    res.send(product)
+
+}
+
 module.exports = {
 
-    get,
+    getAll,
+    getById,
 
 }
