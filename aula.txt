@@ -9,7 +9,7 @@ vai no package.json e cria nos scripts o "dev: nodemon src/server.js" para rodar
 "npm run dev" no gitbash para rodar o script "dev"
 importa o express "const express = require('express')" no server.js e torna um objeto com "const app = express()"
 importa o path "const path = require('path')" para usar os diretorios
-habilita o server para receber dados via post (formulários) "app.use(express.urlencoded({ extended: true }))"
+habilita server para receber dados json "app.use(express.json())"
 define as rotas "app.use('/api', routes)"
 executa o servidor "const port = process.env.PORT || 8080
 app.listen(port, () => console.log(`Server is listening on port ${port}`))"
