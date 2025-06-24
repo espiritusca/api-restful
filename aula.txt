@@ -56,3 +56,8 @@ importa mongoose
 cria um schema "const schema = new mongoose.Schema({ name: String, etc,})
 faz o arquivo criar a tabela no mongoose "const Model = mongoose.model('nomeDaTabela', schema)
 exporta a tabela "module.exports = Model"
+
+
+intalar o cors "npm i cors"
+importar no server.js "const cors = require('cors')
+habilitar o cors apos conexao com o banco db.connect() "app.use(cors())"
